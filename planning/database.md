@@ -21,6 +21,8 @@
 | p   | id                 | serial       |                      |
 |     | status             | varchar(255) |                      |
 
+- Animal `status` would be New/Availble/Adopted. 
+
 
 ### `animal_types`
 
@@ -29,6 +31,8 @@
 | p   | id                | serial       |                   |
 |     | type              | varchar(255) |                   |
 
+- Animal `type` would be Cat/Dog/Bird etc.
+
 ### `animal_breeds`
 
 | Key | Name              | Type         | Relationships     |
@@ -36,6 +40,8 @@
 | p   | id                | serial       |                   |
 | f   | type_id           | integer      | animal_types(id)  |
 |     | breed             | varchar(255) |                   |
+
+- - Animal `breed` would be Domestic Shorthair/English Springer Spaniel/Scarlett Macaw Parrot etc.
 
 ### `owners`
 | Key | Name              | Type         | Relationships     |
