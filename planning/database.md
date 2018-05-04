@@ -4,15 +4,22 @@
 
 ### `animals`
 
-| Key | Name              | Type         | Relationships     |
-|:---:|:------------------|:-------------|:------------------|
-| p   | id                | serial       |                   |
-| f   | breed_id          | integer      | animal_breeds(id) |
-|     | admission_date    | date         |                   |
-|     | name              | varchar(255) |                   |
-|     | date_of_birth     | date         |                   |
-|     | description       | text         |                   |
-|     | ready_for_adoption | boolean      |                   |
+| Key | Name               | Type         | Relationships        |
+|:---:|:-------------------|:-------------|:---------------------|
+| p   | id                 | serial       |                      |
+| f   | breed_id           | integer      | animal_breeds(id)    |
+| f   | status_id          | integer      | animal_statuses (id) |
+|     | admission_date     | date         |                      |
+|     | name               | varchar(255) |                      |
+|     | date_of_birth      | date         |                      |
+|     | description        | text         |                      |
+
+### `animal_statuses`
+
+| Key | Name               | Type         | Relationships        |
+|:---:|:-------------------|:-------------|:---------------------|
+| p   | id                 | serial       |                      |
+|     | status             | varchar(255) |                      |
 
 
 ### `animal_types`
