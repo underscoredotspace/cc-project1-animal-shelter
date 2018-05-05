@@ -26,6 +26,7 @@ INSERT INTO animal_statuses (status) VALUES ('New'),('Available'),('Adopted');
 CREATE TABLE animals (
   id serial PRIMARY KEY,
   name varchar(255),
+  admission_date date,
   breed_id integer REFERENCES animal_breeds (id) ON DELETE CASCADE,
   status_id integer REFERENCES animal_statuses (id) ON DELETE CASCADE
 );
@@ -34,11 +35,6 @@ CREATE TABLE customers (
   id serial PRIMARY KEY,
   name varchar(255),
   email varchar(255) UNIQUE,
-  phone varchar(255),
-  address1 varchar(255),
-  address2 varchar(255),
-  town varchar(255),
-  post_code varchar(10),
   approved_to_adopt boolean DEFAULT false
 );
 
