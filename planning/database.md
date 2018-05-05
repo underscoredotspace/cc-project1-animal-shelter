@@ -31,7 +31,7 @@
 | p   | id                | serial       |                   |
 |     | type              | varchar(255) |                   |
 
-- Animal `type` would be Cat/Dog/Bird etc.
+- Animal `type` would be Cat/Dog/Parrot etc.
 
 ### `animal_breeds`
 
@@ -41,7 +41,7 @@
 | f   | type_id           | integer      | animal_types(id)  |
 |     | breed             | varchar(255) |                   |
 
-- - Animal `breed` would be Domestic Shorthair/English Springer Spaniel/Scarlett Macaw Parrot etc.
+- - Animal `breed` would be Domestic Shorthair/English Springer Spaniel/Scarlet Macaw etc.
 
 ### `owners`
 | Key | Name              | Type         | Relationships     |
@@ -50,6 +50,10 @@
 |     | name              | varchar(255) |                   |
 |     | email             | varchar(255) |                   |
 |     | phone             | varchar(255) |                   |
+|     | address1          | varchar(255) |                   |
+|     | address2          | varchar(255) |                   |
+|     | town              | varchar(255) |                   |
+|     | post_code         | varchar(10)  |                   |
 |     | approved_to_adopt | boolean      |                   |
 
 ### `adoptions`
