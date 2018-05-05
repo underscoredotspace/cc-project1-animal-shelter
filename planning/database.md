@@ -43,7 +43,7 @@
 
 - - Animal `breed` would be Domestic Shorthair/English Springer Spaniel/Scarlet Macaw etc.
 
-### `owners`
+### `customers`
 | Key | Name              | Type         | Relationships     |
 |:---:|:------------------|:-------------|:------------------|
 | p   | id                | serial       |                   |
@@ -62,5 +62,5 @@
 |:---:|:------------------|:-------------|:------------------|
 | p   | id                | serial       |                   |
 | f   | animal_id         | integer      | animals(id)       |
-| f   | owner_id          | integer      | owners(id)        |
+| f   | customer_id       | integer      | customers(id)     |
 |     | adoption_date     | date         |                   |
