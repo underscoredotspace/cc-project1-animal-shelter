@@ -1,6 +1,5 @@
-<h2>Animals</h2>
+<h2>Animal > Edit</h2>
 
-<h3><%=@animal.name%></h3>
 <form action="/animals/<%=@animal.id%>/edit" method="post">
 
   <label for="animal-name">Name</label>
@@ -9,10 +8,10 @@
     <label for="animal-type">Type</label>
     <input type="text" id="animal-type" disabled value="<%=@animal.type%>">
     
-    <label for="animal-breed">Breed</label>
+    <label for="animal-breed">Breed <%=@animal.breed_id%></label>
     <select name="breed_id" id="animal-breed">
       <% @breeds.each do |breed| %>
-      <option value="<%=breed["id"]%>" <%= "selected" if breed["id"]==@animal.breed_id %>>
+      <option value="<%=breed["id"]%>" <%= "selected" if breed["id"].to_i==@animal.breed_id %>>
         <%=breed["breed"]%>
       </option>
       <% end #breeds.each %>
@@ -21,7 +20,7 @@
     <label for="animal-status">Status</label>
     <select name="status_id" id="animal-status">
       <% @statuses.each do |status| %>
-      <option value="<%=status["id"]%>" <%= "selected" if status["id"]==@animal.status_id %>>
+      <option value="<%=status["id"]%>" <%= "selected" if status["id"].to_i==@animal.status_id %>>
         <%=status["status"]%>
       </option>
       <% end #statuses.each %>

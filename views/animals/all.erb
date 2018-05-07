@@ -1,12 +1,12 @@
-<h2>Animals &gt; All</h2>
+<h2>Animals &gt; <%= @title %></h2>
 
 <table>
   <thead>
     <tr>
       <td>Name</td>
-      <td>Admission Date</td>
+      <td class="desktop-only">Admission Date</td>
       <td>Type</td>
-      <td>Breed</td>
+      <td class="desktop-only">Breed</td>
       <td>Status</td>
     </tr>
   </thead>
@@ -14,9 +14,9 @@
     <% @animals.each do |animal| %>
     <tr>
       <td><a href="/animals/<%=animal.id%>/edit"><%=animal.name%></a></td>
-      <td><%=animal.admission_date%></td>
+      <td class="desktop-only"><%=animal.admission_date%></td>
       <td><%=animal.type%></td>
-      <td><%=animal.breed%></td>
+      <td class="desktop-only">><%=animal.breed%></td>
       <td><%=animal.status%></td>
     </tr>
     <% end #animals.each %>

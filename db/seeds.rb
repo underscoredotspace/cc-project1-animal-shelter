@@ -1,5 +1,6 @@
 require_relative('./SqlRunner')
 require_relative('../models/Animal')
+require_relative('../models/Customer')
 
 SqlRunner.run('DELETE FROM animal_types')
 
@@ -61,3 +62,24 @@ animal5 = Animal.new({
 })
 
 animal5.save()
+
+customer1 = Customer.new({
+  "name" => "Amy",
+  "email" => "amy@gmail.com"
+})
+
+customer1.save()
+
+customer2 = Customer.new({
+  "name" => "Drew",
+  "email" => "drew@yahoo.com"
+})
+
+customer2.save()
+
+customer3 = Customer.new({
+  "name" => "Nic",
+  "email" => "nicpatdaw@hotmail.co.uk"
+})
+
+customer3.save()

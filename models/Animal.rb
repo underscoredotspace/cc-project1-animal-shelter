@@ -1,8 +1,7 @@
 require_relative('../db/SqlRunner')
 
 class Animal
-  attr_reader :id, :type, :breed, :status, :type_id
-  attr_accessor :name, :breed_id, :status_id, :admission_date
+  attr_reader :id, :type, :breed, :status, :type_id, :name, :breed_id, :status_id, :admission_date
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
@@ -10,9 +9,9 @@ class Animal
     @type = options["type"]
     @breed = options["breed"]
     @status = options["status"]
-    @type_id = options["type_id"]
-    @breed_id = options["breed_id"]
-    @status_id = options["status_id"]
+    @type_id = options["type_id"].to_i
+    @breed_id = options["breed_id"].to_i
+    @status_id = options["status_id"].to_i
     @admission_date = options["admission_date"]
   end
 
@@ -20,7 +19,7 @@ class Animal
     sql = "INSERT INTO animals (name, breed_id, status_id, admission_date)
       VALUES ($1, $2, $3, $4) RETURNING id;"
     values = [@name, @breed_id, @status_id, @admission_date]
-    @id = SqlRunner.run(sql, values)[0]["id"]
+    @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
   def update()
@@ -96,7 +95,6 @@ class Animal
   end
 
   def self.breeds(type_id)
-    p type_id
     sql = "SELECT animal_breeds.* FROM animal_breeds
       INNER JOIN animal_types
         ON type_id = animal_types.id
