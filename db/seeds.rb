@@ -14,6 +14,8 @@ animal_new = SqlRunner.run("SELECT id FROM animal_statuses WHERE status = 'New'"
 animal_available = SqlRunner.run("SELECT id FROM animal_statuses WHERE status = 'Available'")[0]["id"]
 animal_adopted = SqlRunner.run("SELECT id FROM animal_statuses WHERE status = 'Adopted'")[0]["id"]
 
+Animal.delete_all()
+
 animal1 = Animal.new({
   "name" => "Ben",
   "breed_id" => dog_poodle,

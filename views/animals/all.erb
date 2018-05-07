@@ -1,4 +1,4 @@
-<h2>Animals &gt; Adoptable</h2>
+<h2>Animals &gt; All</h2>
 
 <table>
   <thead>
@@ -7,6 +7,7 @@
       <td>Admission Date</td>
       <td>Type</td>
       <td>Breed</td>
+      <td>Status</td>
     </tr>
   </thead>
   <tbody>
@@ -16,12 +17,13 @@
       <td><%=animal.admission_date%></td>
       <td><%=animal.type%></td>
       <td><%=animal.breed%></td>
+      <td><%=animal.status%></td>
     </tr>
     <% end #animals.each %>
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="4">Number of adoptable animals: <%=@animals.length%></td>
+      <td colspan="4">Number of animals: <%=@animals.length%></td>
     </tr>
   </tfoot>
 </table>
