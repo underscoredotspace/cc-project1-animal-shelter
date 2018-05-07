@@ -1,0 +1,103 @@
+/* https://coolors.co/ffcdc9-ffddc9-fff3bc-ffe6c9-ffbfda */
+
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  background-color: #e2f6ff;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+main a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px hotpink solid;
+}
+
+a:hover {
+  background-color: lightgreen;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid black;
+}
+
+thead td {
+  background-color: black;
+  color: white;
+  font-weight: bolder;
+  font-size: 1.2rem;
+  padding: 12px 6px;
+}
+
+tbody tr {
+  background-color: #ffe4e2;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #fff7d6;
+}
+
+tbody td {
+  padding: 6px;
+}
+
+nav ul {
+  display: flex;
+  padding: 0;
+  list-style-type: none;
+  border: 1px solid black;
+}
+
+nav ul span {
+  display: block;
+  padding: 5px 0;
+}
+
+nav li {
+  text-align: center;
+}
+
+nav a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  height: 100%;
+  padding: 5px 10px;
+}
+
+nav a:hover {
+  background-color: #ffd6fc;
+}
+
+ul.top-level {
+  flex-flow: column nowrap;
+  background-color: black;
+  color: white;
+}
+
+ul.top-level li {
+  font-size: 1.2rem;
+}
+
+ul.sub-level {
+  flex-flow: row wrap;
+  background-color: white;
+}
+
+ul.sub-level li {
+  flex: 1;
+  font-size: 1rem;
+  list-style: none;
+  border: 1px solid black;
+}
