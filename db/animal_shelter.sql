@@ -41,5 +41,5 @@ CREATE TABLE customers (
 CREATE TABLE adoptions (
   id serial PRIMARY KEY,
   customer_id integer REFERENCES customers (id) ON DELETE CASCADE,
-  animal_id integer REFERENCES animals (id) ON DELETE CASCADE
+  animal_id integer UNIQUE REFERENCES animals (id) ON DELETE CASCADE
 );

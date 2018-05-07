@@ -22,3 +22,12 @@ animal1 = Animal.new({
 })
 
 animal1.save()
+
+animal2 = Animal.new({
+  "name" => "Neeko",
+  "breed_id" => cat_dsh,
+  "status_id" => animal_new,
+  "admission_date" => "2017-09-01"
+})
+
+animal2.save()
