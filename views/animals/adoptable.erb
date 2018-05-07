@@ -1,0 +1,27 @@
+<h2>Animals</h2>
+
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Admission Date</td>
+      <td>Type</td>
+      <td>Breed</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @animals.each do |animal| %>
+    <tr>
+      <td><%=animal.name%></td>
+      <td><%=animal.admission_date%></td>
+      <td><%=animal.type%></td>
+      <td><%=animal.breed%></td>
+    </tr>
+    <% end #animals.each %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4">Number of adoptable animals: <%=@animals.length%></td>
+    </tr>
+  </tfoot>
+</table>

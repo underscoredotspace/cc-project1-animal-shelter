@@ -17,7 +17,7 @@ animal_adopted = SqlRunner.run("SELECT id FROM animal_statuses WHERE status = 'A
 animal1 = Animal.new({
   "name" => "Ben",
   "breed_id" => dog_poodle,
-  "status_id" => animal_new,
+  "status_id" => animal_available,
   "admission_date" => "2018-02-28"
 })
 
