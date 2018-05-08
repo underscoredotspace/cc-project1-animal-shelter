@@ -28,7 +28,7 @@ delete_all(id)
 id: Integer
 name: String
 admission_date: String
-status: Integer
+adoptable: Boolean
 
 **Object Methods**
 save()

@@ -15,11 +15,11 @@
 - [x] Submit button -> **POST** `/animal/id/edit`
 
 ## Adopt animal `/animal/id/adopt`
-- [ ] Animal name, type and breed
-- [ ] List of Customers who are approved to adopt
-- [ ] Submit button -> **POST** `/animal/id/edit`
+- [x] Animal name, type and breed
+- [x] List of Customers who are approved to adopt
+- [x] Submit button -> **POST** `/customer/id/adopt/animal_id`
 
 ## Customers who have adopted animals `/customer/adopters`
-- [ ] List all adopters and their adopted animals
+- [x] List all adopters and their adopted animals
 - [ ] Link to customer details page `/customer/id`
 - [ ] Link to animal details page `/animal/id`

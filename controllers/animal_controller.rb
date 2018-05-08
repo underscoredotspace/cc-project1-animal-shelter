@@ -1,4 +1,5 @@
 require_relative('../models/Animal')
+require_relative('../models/Customer')
 
 get '/animals/all' do
   @animals = Animal.all()
@@ -30,6 +31,7 @@ end
 
 get '/animals/:id/adopt' do |id|
   @animal = Animal.by_id(id)
+  @customers = Customer.approved()
   @title = "Adoption"
   @section = "Animals"
   erb(:"animals/adopt")

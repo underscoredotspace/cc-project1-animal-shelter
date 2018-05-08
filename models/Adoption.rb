@@ -41,11 +41,37 @@ class Adoption
   end
 
   def self.find_by_animal_id(id)
-
+    sql = 'SELECT adoptions.*, 
+      animals.name AS animal_name, breed, type, 
+      customers.name AS customer_name, email FROM animals 
+    INNER JOIN adoptions 
+      ON animals.id = animal_id 
+    INNER JOIN customers
+      ON customers.id = customer_id
+    INNER JOIN animal_breeds
+      ON breed_id = animal_breeds.id
+    INNER JOIN animal_types
+      ON type_id = animal_types.id
+    WHERE animal_id = $1'
+    results = SqlRunner.run(sql, [id])
+    self.map_items(results)
   end
 
   def self.find_by_customer_id(id)
-
+    sql = 'SELECT adoptions.*, 
+      animals.name AS animal_name, breed, type, 
+      customers.name AS customer_name, email FROM animals 
+    INNER JOIN adoptions 
+      ON animals.id = animal_id 
+    INNER JOIN customers
+      ON customers.id = customer_id
+    INNER JOIN animal_breeds
+      ON breed_id = animal_breeds.id
+    INNER JOIN animal_types
+      ON type_id = animal_types.id
+    WHERE customer_id = $1'
+    results = SqlRunner.run(sql, [id])
+    self.map_items(results)
   end
 
   def self.map_items(items)
