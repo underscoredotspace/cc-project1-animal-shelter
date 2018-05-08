@@ -10,7 +10,7 @@
 </head>
 <body>
   <header>
-    <h1>The Edinburgh Animal Shelter</h1>
+    <h1><a href="/animals/all">The Edinburgh Animal Shelter</a></h1>
   </header>
   <nav>
     <ul class="top-level">
@@ -41,7 +41,7 @@
     </ul>
   </nav>
   <main>
-    <h2><%= @section %> &gt; <%= @title %></h2>
+    <h2><%= @section if @section %><%= " &gt; #{@title}" if @title %></h2>
     <%= yield %>
   </main>
 </body>
