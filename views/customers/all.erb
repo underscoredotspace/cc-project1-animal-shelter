@@ -1,0 +1,20 @@
+<h2>Customers &gt; <%= @title %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Email</td>
+      <td>Approved</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+    <tr>
+      <td><a href="/customers/<%=customer.id%>/edit"><%=customer.name%></a></td>
+      <td><%=customer.email%></td>
+      <td><%=customer.approved_to_adopt==true%></td>
+    </tr>
+    <% end #customers.each %>
+  </tbody>
+</table>

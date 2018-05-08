@@ -1,0 +1,18 @@
+<h2>Customer > Edit</h2>
+
+<form action="/customers/<%=@customer.id%>/edit" method="post">
+
+  <label for="customer-name">Name</label>
+    <input type="text" name="name" id="customer-name" value="<%=@customer.name%>">
+
+  <label for="customer-email">Email</label>
+    <input type="text" name="email" id="customer-email" value="<%=@customer.email%>">
+
+  <span>
+    <label for="customer-approved">Approved</label>
+      <input type="checkbox" name="approved_to_adopt" id="customer-approved" <%='checked' if @customer.approved_to_adopt==true%>>
+  </span>
+    
+  <button type="submit">Save</button>
+
+</form>

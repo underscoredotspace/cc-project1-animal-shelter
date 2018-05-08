@@ -8,7 +8,7 @@
     <label for="animal-type">Type</label>
     <input type="text" id="animal-type" disabled value="<%=@animal.type%>">
     
-    <label for="animal-breed">Breed <%=@animal.breed_id%></label>
+    <label for="animal-breed">Breed</label>
     <select name="breed_id" id="animal-breed">
       <% @breeds.each do |breed| %>
       <option value="<%=breed["id"]%>" <%= "selected" if breed["id"].to_i==@animal.breed_id %>>
