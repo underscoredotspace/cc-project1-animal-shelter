@@ -1,5 +1,3 @@
-<h2>Customer > Edit</h2>
-
 <form action="/customers/<%=@customer.id%>/edit" method="post">
 
   <label for="customer-name">Name</label>
@@ -10,7 +8,7 @@
 
   <span>
     <label for="customer-approved">Approved</label>
-      <input type="checkbox" name="approved_to_adopt" id="customer-approved" <%='checked' if @customer.approved_to_adopt==true%>>
+      <input type="checkbox" name="approved_to_adopt" id="customer-approved" <%='checked' if @customer.approved_to_adopt%>>
   </span>
     
   <button type="submit">Save</button>

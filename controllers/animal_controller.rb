@@ -3,18 +3,21 @@ require_relative('../models/Animal')
 get '/animals/all' do
   @animals = Animal.all()
   @title = "All"
+  @section = "Animals"
   erb(:"animals/all")
 end
 
 get '/animals/adoptable' do
   @animals = Animal.adoptable()
   @title = "Adoptable"
+  @section = "Animals"
   erb(:"animals/all")
 end
 
 get '/animals/new' do
   @animals = Animal.new_animals()
   @title = "New"
+  @section = "Animals"
   erb(:"animals/all")
 end
 
@@ -23,6 +26,7 @@ get '/animals/:id/edit' do |id|
   @breeds = Animal.breeds(@animal.type_id)
   @statuses = Animal.statuses()
   @title = "Edit"
+  @section = "Animals"
   erb(:"animals/edit")
 end
 
