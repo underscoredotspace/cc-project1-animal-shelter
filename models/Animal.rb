@@ -45,12 +45,14 @@ class Animal
   end
   
   def self.all()
-    sql = "SELECT animals.*, type, breed, adoptable FROM animals
-      INNER JOIN animal_breeds
-        ON breed_id = animal_breeds.id
-      INNER JOIN animal_types
-        ON type_id = animal_types.id
-      ORDER BY animals.admission_date;"
+    sql = "SELECT * FROM animals 
+    FULL JOIN adoptions 
+      ON animals.id = animal_id 
+    INNER JOIN animal_breeds
+      ON breed_id = animal_breeds.id
+    INNER JOIN animal_types
+      ON type_id = animal_types.id
+    WHERE adoption_date IS NULL;"
     results = SqlRunner.run(sql)
     self.map_items(results)
   end

@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <td>Customer</td>
+      <td>Email</td>
+      <td>Animal</td>
+      <td>Type</td>
+      <td>Breed</td>
+      <td>Adoption Date</td>
+    </tr>
+  </thead>
+  <% @adoptions.each do |adoption| %>
+  <tr>
+    <td><%= adoption.customer_name %></td>
+    <td><%= adoption.customer_email %></td>
+    <td><%= adoption.animal_name %></td>
+    <td><%= adoption.animal_type %></td>
+    <td><%= adoption.animal_breed %></td>
+    <td><%= adoption.adoption_date %></td>
+  </tr>
+  <% end #adoptions.each %>
+</table>
