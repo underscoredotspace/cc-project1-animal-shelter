@@ -7,6 +7,13 @@ get '/customers/all' do
   erb(:"customers/all")
 end
 
+get '/customers/approved' do
+  @customers = Customer.approved()
+  @title = "Approved"
+  @section = "Customers"
+  erb(:"customers/all")
+end
+
 get '/customers/:id' do |id|
   @customer = Customer.by_id(id)
   @title = @customer.name

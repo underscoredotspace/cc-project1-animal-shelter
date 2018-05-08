@@ -2,13 +2,13 @@
 
 ## Home `/`
 - [x] List of all current animals available for adoption with their admission date in a table
-- [ ] Link to animal details page `/animal/id`
+- [x] Link to animal details page `/animal/id`
 
 ## Animal details `/animal/id`
-- [ ] List all animal details in a table
+- [x] List all animal details in a table
 - [ ] Delete button -> **POST** `/animal/id/delete`
-- [ ] Edit link
-- [ ] Adopt link
+- [x] Edit link
+- [x] Adopt link
 
 ## Edit animal `/animal/id/edit`
 - [x] All animal details in form

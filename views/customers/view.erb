@@ -13,5 +13,7 @@
   </tr>
 </table>
 
-<a href="/customers/<%=@customer.id%>/edit">Edit Customer</a>&nbsp;|&nbsp;
-<a href="/customers/<%=@customer.id%>/adopt">Add Adoption</a>
+<a href="/customers/<%=@customer.id%>/edit">Edit Customer</a><br>
+<% if @customer.approved_to_adopt %>
+  <a href="/customers/<%=@customer.id%>/adopt">Add Adoption</a>
+<% end %>

@@ -34,7 +34,12 @@ class Customer
   end
 
   def self.all()
-    customers = SqlRunner.run("SELECT * FROM customers")
+    customers = SqlRunner.run("SELECT * FROM customers;")
+    self.map_items(customers)
+  end
+
+  def self.approved()
+    customers = SqlRunner.run("SELECT * FROM customers WHERE approved_to_adopt = 't';")
     self.map_items(customers)
   end
 

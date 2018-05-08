@@ -17,5 +17,7 @@
   </tr>
 </table>
   
-  <a href="/animals/<%=@animal.id%>/edit">Edit animal</a>&nbsp;|&nbsp;
-  <a href="/animals/<%=@animal.id%>/adopt">Add Adoption</a>
+  <a href="/animals/<%=@animal.id%>/edit">Edit animal</a><br>
+  <% if @animal.status=="Available" %>
+    <a href="/animals/<%=@animal.id%>/adopt">Add Adoption</a>
+  <% end %>
