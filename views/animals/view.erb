@@ -12,12 +12,12 @@
     <td><%=@animal.breed%></td>
   </tr>
   <tr>
-    <td>Status</td>
-    <td><%=@animal.status%></td>
+    <td>Adoptable</td>
+    <td class="centered"><%='✅' if @animal.adoptable%></td>
   </tr>
 </table>
   
   <a href="/animals/<%=@animal.id%>/edit">Edit animal</a><br>
-  <% if @animal.status=="Available" %>
+  <% if @animal.adoptable %>
     <a href="/animals/<%=@animal.id%>/adopt">Add Adoption</a>
   <% end %>

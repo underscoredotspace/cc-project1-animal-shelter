@@ -38,14 +38,13 @@ end
 get '/animals/:id/edit' do |id|
   @animal = Animal.by_id(id)
   @breeds = Animal.breeds(@animal.type_id)
-  @statuses = Animal.statuses()
   @title = "Edit"
   @section = "Animals"
   erb(:"animals/edit")
 end
 
-post '/animals/:id/edit' do
+post '/animals/:id/edit' do |id|
   animal = Animal.new(params)
   animal.update()
-  redirect to('/animals/all')
+  redirect to("/animals/#{id}")
 end

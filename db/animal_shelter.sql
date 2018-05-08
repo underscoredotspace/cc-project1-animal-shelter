@@ -1,6 +1,5 @@
 DROP TABLE IF EXISTS animal_types;
 DROP TABLE IF EXISTS animal_breeds;
-DROP TABLE IF EXISTS animal_statuses;
 DROP TABLE IF EXISTS animals;
 DROP TABLE IF EXISTS customers;
 DROP TABLE IF EXISTS adoptions;
@@ -16,19 +15,12 @@ CREATE TABLE animal_breeds (
   type_id integer REFERENCES animal_types (id) ON DELETE CASCADE
 );
 
-CREATE TABLE animal_statuses (
-  id serial PRIMARY KEY,
-  status varchar(255) UNIQUE
-);
-
-INSERT INTO animal_statuses (status) VALUES ('New'),('Available'),('Adopted');
-
 CREATE TABLE animals (
   id serial PRIMARY KEY,
   name varchar(255),
   admission_date date,
   breed_id integer REFERENCES animal_breeds (id) ON DELETE CASCADE,
-  status_id integer REFERENCES animal_statuses (id) ON DELETE CASCADE
+  adoptable boolean DEFAULT false
 );
 
 CREATE TABLE customers (

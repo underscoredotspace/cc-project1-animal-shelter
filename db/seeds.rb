@@ -12,16 +12,11 @@ cat_white = SqlRunner.run("INSERT INTO animal_breeds (breed, type_id) VALUES ('D
 dog_whippet = SqlRunner.run("INSERT INTO animal_breeds (breed, type_id) VALUES ('Whippet', $1) RETURNING id;", [dog])[0]['id']
 dog_pug = SqlRunner.run("INSERT INTO animal_breeds (breed, type_id) VALUES ('Pug', $1) RETURNING id;", [dog])[0]['id']
 
-animal_new = SqlRunner.run("SELECT id FROM animal_statuses WHERE status = 'New'")[0]["id"]
-animal_available = SqlRunner.run("SELECT id FROM animal_statuses WHERE status = 'Available'")[0]["id"]
-animal_adopted = SqlRunner.run("SELECT id FROM animal_statuses WHERE status = 'Adopted'")[0]["id"]
-
 Animal.delete_all()
 
 animal1 = Animal.new({
   "name" => "Kira",
   "breed_id" => dog_whippet,
-  "status_id" => animal_new,
   "admission_date" => "2018-04-29"
 })
 
@@ -30,7 +25,7 @@ animal1.save()
 animal2 = Animal.new({
   "name" => "Sidney",
   "breed_id" => cat_white,
-  "status_id" => animal_available,
+  "adoptable" => 't',
   "admission_date" => "2018-03-15"
 })
 
@@ -39,7 +34,7 @@ animal2.save()
 animal3 = Animal.new({
   "name" => "Ella",
   "breed_id" => cat_white,
-  "status_id" => animal_available,
+  "adoptable" => 't',
   "admission_date" => "2018-03-15"
 })
 
@@ -48,7 +43,6 @@ animal3.save()
 animal4 = Animal.new({
   "name" => "Mr Pickles",
   "breed_id" => dog_pug,
-  "status_id" => animal_new,
   "admission_date" => "2017-12-25"
 })
 
@@ -57,7 +51,7 @@ animal4.save()
 animal5 = Animal.new({
   "name" => "Neeko",
   "breed_id" => cat_black,
-  "status_id" => animal_adopted,
+  "adoptable" => 't',
   "admission_date" => "2017-09-01"
 })
 

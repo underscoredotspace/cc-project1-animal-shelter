@@ -13,4 +13,16 @@ class Adoption
     values = [@customer_id, @animal_id]
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
+
+  def adopted()
+
+  end
+
+  def find_by_animal_id(id)
+
+  end
+
+  def find_by_customer_id(id)
+
+  end
 end

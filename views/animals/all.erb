@@ -5,7 +5,7 @@
       <td class="desktop-only">Admission Date</td>
       <td>Type</td>
       <td class="desktop-only">Breed</td>
-      <td>Status</td>
+      <td class="centered">Adoptable</td>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +15,7 @@
       <td class="desktop-only"><%=animal.admission_date%></td>
       <td><%=animal.type%></td>
       <td class="desktop-only"><%=animal.breed%></td>
-      <td><%=animal.status%></td>
+      <td class="centered"><%='✅' if animal.adoptable%></td>
     </tr>
     <% end #animals.each %>
   </tbody>

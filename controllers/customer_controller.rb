@@ -16,6 +16,13 @@ get '/customers/approved' do
   erb(:"customers/all")
 end
 
+get '/customers/adoptions' do
+  @customers = Customer.approved()
+  @title = "Adoptions"
+  @section = "Customers"
+  erb(:"customers/adoptions")
+end
+
 get '/customers/:id' do |id|
   @customer = Customer.by_id(id)
   @title = @customer.name
@@ -59,5 +66,5 @@ end
 post '/customers/:id/edit' do |id|
   customer = Customer.new(params)
   customer.update()
-  redirect to('/customers/#{id}')
+  redirect to("/customers/#{id}")
 end
