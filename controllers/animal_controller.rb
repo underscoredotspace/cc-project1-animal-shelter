@@ -21,6 +21,20 @@ get '/animals/new' do
   erb(:"animals/all")
 end
 
+get '/animals/:id' do |id|
+  @animal = Animal.by_id(id)
+  @title = @animal.name
+  @section = "Animals"
+  erb(:"animals/view")
+end
+
+get '/animals/:id/adopt' do |id|
+  @animal = Animal.by_id(id)
+  @title = "Adoption"
+  @section = "Animals"
+  erb(:"animals/adopt")
+end
+
 get '/animals/:id/edit' do |id|
   @animal = Animal.by_id(id)
   @breeds = Animal.breeds(@animal.type_id)

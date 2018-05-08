@@ -1,0 +1,17 @@
+<table class="single-view">
+  <tr>
+    <td>Name</td>
+    <td><%=@customer.name%></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><%=@customer.email%></td>
+  </tr>
+  <tr>
+    <td>Approved</td>
+    <td><%=@customer.approved_to_adopt%></td>
+  </tr>
+</table>
+
+<a href="/customers/<%=@customer.id%>/edit">Edit Customer</a>&nbsp;|&nbsp;
+<a href="/customers/<%=@customer.id%>/adopt">Add Adoption</a>

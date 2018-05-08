@@ -35,13 +35,16 @@ main a:hover {
   background-color: lightgreen;
 }
 
+table:not(.single-view) {
+  width: 100%;
+}
+
 table {
   border-collapse: collapse;
-  width: 100%;
   border: 1px solid black;
 }
 
-thead td {
+thead td, .single-view td:first-of-type {
   background-color: black;
   color: white;
   font-weight: bolder;

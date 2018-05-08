@@ -9,7 +9,7 @@
   <tbody>
     <% @customers.each do |customer| %>
     <tr>
-      <td><a href="/customers/<%=customer.id%>/edit"><%=customer.name%></a></td>
+      <td><a href="/customers/<%=customer.id%>"><%=customer.name%></a></td>
       <td><%=customer.email%></td>
       <td class="centered"><%='✅' if customer.approved_to_adopt%></td>
     </tr>

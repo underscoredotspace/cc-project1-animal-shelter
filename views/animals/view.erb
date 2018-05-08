@@ -1,0 +1,21 @@
+<table class="single-view">
+  <tr>
+    <td>Admission Date</td>
+    <td><%=@animal.admission_date%></td>
+  </tr>
+  <tr>
+    <td>Type</td>
+    <td><%=@animal.type%></td>
+  </tr>
+  <tr>
+    <td>Breed</td>
+    <td><%=@animal.breed%></td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td><%=@animal.status%></td>
+  </tr>
+</table>
+  
+  <a href="/animals/<%=@animal.id%>/edit">Edit animal</a>&nbsp;|&nbsp;
+  <a href="/animals/<%=@animal.id%>/adopt">Add Adoption</a>
