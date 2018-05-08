@@ -1,0 +1,32 @@
+<table class="single-view">
+  <tr>
+    <td>Name</td>
+    <td><%=@customer.name%></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><%=@customer.email%></td>
+  </tr>
+</table>
+
+<table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td class="desktop-only">Admission Date</td>
+        <td>Type</td>
+        <td class="desktop-only">Breed</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @animals.each do |animal| %>
+      <tr>
+        <td><a href="/customers/<%=@customer.id%>/adopt/<%=animal.id%>"><%=animal.name%></a></td>
+        <td class="desktop-only"><%=animal.admission_date%></td>
+        <td><%=animal.type%></td>
+        <td class="desktop-only"><%=animal.breed%></td>
+      </tr>
+      <% end #animals.each %>
+    </tbody>
+  </table>
+  

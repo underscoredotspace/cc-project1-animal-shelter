@@ -1,4 +1,6 @@
 require_relative('../models/Customer')
+require_relative('../models/Animal')
+require_relative('../models/Adoption')
 
 get '/customers/all' do
   @customers = Customer.all()
@@ -30,13 +32,32 @@ end
 
 get '/customers/:id/adopt' do |id|
   @customer = Customer.by_id(id)
+  @animals = Animal.adoptable()
   @title = "New Adoption"
   @section = "Customers"
   erb(:"customers/adopt")
 end
 
-post '/customers/:id/edit' do
+get '/customers/:id/adopt/:animal_id' do |id, animal_id|
+  @customer = Customer.by_id(id)
+  @animal = Animal.by_id(animal_id)
+  @title = "New Adoption"
+  @section = "Customers"
+  erb(:"customers/adopt_confirm")
+end
+
+post '/customers/:customer_id/adopt/:animal_id' do |customer_id, animal_id|
+  adoption = Adoption.new({
+    "customer_id" => customer_id, 
+    "animal_id" => animal_id
+  })
+  adoption.save()
+
+  redirect to("/customers/#{customer_id}")
+end
+
+post '/customers/:id/edit' do |id|
   customer = Customer.new(params)
   customer.update()
-  redirect to('/customers/all')
+  redirect to('/customers/#{id}')
 end

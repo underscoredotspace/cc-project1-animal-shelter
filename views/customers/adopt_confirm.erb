@@ -1,0 +1,29 @@
+<form action="/customers/<%=@customer.id%>/adopt/<%=@animal.id%>" method="post">
+<table class="single-view">
+    <tr>
+      <td>Name</td>
+      <td><%=@customer.name%></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><%=@customer.email%></td>
+    </tr>
+  </table>
+
+  <table class="single-view">
+    <tr>
+      <td>Admission Date</td>
+      <td><%=@animal.admission_date%></td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td><%=@animal.type%></td>
+    </tr>
+    <tr>
+      <td>Breed</td>
+      <td><%=@animal.breed%></td>
+    </tr>
+  </table>
+  
+  <button type="submit">Confirm Adoption</button>
+</form>
