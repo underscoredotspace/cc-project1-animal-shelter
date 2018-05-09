@@ -1,4 +1,5 @@
 require_relative('../db/SqlRunner')
+require_relative('./Animal')
 
 class Customer
   attr_reader :id, :name, :email, :approved_to_adopt
@@ -23,6 +24,15 @@ class Customer
       = ($1, $2, $3) WHERE ID = $4;"
     values = [@name, @email, @approved_to_adopt, @id]
     SqlRunner.run(sql, values)
+  end
+
+  def animals()
+    sql = "SELECT animals.* FROM adoptions
+    INNER JOIN animals 
+      ON animals.id = adoptions.animal_id
+    WHERE adoptions.customer_id = $1"
+    animals = SqlRunner.run(sql, [@id])
+    Animal.map_items(animals)
   end
 
   # Class methods

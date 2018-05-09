@@ -37,6 +37,7 @@ end
 
 get '/customers/:id' do |id|
   @customer = Customer.by_id(id)
+  @animals = @customer.animals()
   @title = @customer.name
   @section = "Customers"
   erb(:"customers/view")

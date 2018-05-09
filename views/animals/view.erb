@@ -20,7 +20,7 @@
   <% if @owner %>
   <tr>
     <td>Owner</td>
-    <td><%= @owner.name %></td>
+    <td><a href="/customers/<%=@owner.id%>"><%=@owner.name%></a></td>
   </tr>
   <tr>
     <td>Owner Email</td>

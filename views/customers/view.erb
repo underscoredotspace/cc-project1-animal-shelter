@@ -9,6 +9,28 @@
   </tr>
 </table>
 
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td class="desktop-only">Admission Date</td>
+      <td>Type</td>
+      <td class="desktop-only">Breed</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @animals.each do |animal| %>
+    <% p animal %>
+    <tr>
+      <td><a href="/animals/<%=animal.id%>"><%=animal.name%></a></td>
+      <td class="desktop-only"><%=animal.admission_date%></td>
+      <td><%=animal.type%></td>
+      <td class="desktop-only"><%=animal.breed%></td>
+    </tr>
+    <% end #animals.each %>
+  </tbody>
+</table>
+
 <a href="/customers/<%=@customer.id%>/edit">Edit Customer</a><br>
 <% if @customer.approved_to_adopt %>
   <a href="/customers/<%=@customer.id%>/adopt">Add Adoption</a>
