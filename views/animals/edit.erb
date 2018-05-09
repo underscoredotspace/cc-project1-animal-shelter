@@ -18,6 +18,8 @@
     <label for="adoptable">Adoptable</label>
       <input type="checkbox" name="adoptable" id="adoptable" <%='checked' if @animal.adoptable%>>
     
+  <hr>
+
   <input type="hidden" name="admission_date" id="animal-admission-date" value="<%=@animal.admission_date%>">
   <button type="submit">Save</button>
 

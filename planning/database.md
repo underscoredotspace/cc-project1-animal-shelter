@@ -3,29 +3,17 @@
 ## Tables
 
 ### `animals`
-
 | Key | Name               | Type         | Relationships        |
 |:---:|:-------------------|:-------------|:---------------------|
 | p   | id                 | serial       |                      |
 | f   | breed_id           | integer      | animal_breeds(id)    |
-| f   | status_id          | integer      | animal_statuses (id) |
 |     | admission_date     | date         |                      |
 |     | name               | varchar(255) |                      |
 |     | date_of_birth      | date         |                      |
 |     | description        | text         |                      |
-
-### `animal_statuses`
-
-| Key | Name               | Type         | Relationships        |
-|:---:|:-------------------|:-------------|:---------------------|
-| p   | id                 | serial       |                      |
-|     | status             | varchar(255) |                      |
-
-- Animal `status` would be New/Availble/Adopted. 
-
+|     | adoptable          | boolean      |                   |
 
 ### `animal_types`
-
 | Key | Name              | Type         | Relationships     |
 |:---:|:------------------|:-------------|:------------------|
 | p   | id                | serial       |                   |
@@ -34,7 +22,6 @@
 - Animal `type` would be Cat/Dog/Parrot etc.
 
 ### `animal_breeds`
-
 | Key | Name              | Type         | Relationships     |
 |:---:|:------------------|:-------------|:------------------|
 | p   | id                | serial       |                   |
@@ -57,7 +44,6 @@
 |     | approved_to_adopt | boolean      |                   |
 
 ### `adoptions`
-
 | Key | Name              | Type         | Relationships     |
 |:---:|:------------------|:-------------|:------------------|
 | p   | id                | serial       |                   |

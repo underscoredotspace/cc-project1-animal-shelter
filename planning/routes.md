@@ -6,7 +6,7 @@
 
 ## Animal details `/animal/id`
 - [x] List all animal details in a table
-- [ ] Delete button -> **POST** `/animal/id/delete`
+- [ ] ~~Delete button -> **POST** `/animal/id/delete`~~
 - [x] Edit link
 - [x] Adopt link
 
@@ -21,5 +21,5 @@
 
 ## Customers who have adopted animals `/customer/adopters`
 - [x] List all adopters and their adopted animals
-- [ ] Link to customer details page `/customer/id`
-- [ ] Link to animal details page `/animal/id`
+- [x] Link to customer details page `/customer/id`
+- [x] Link to animal details page `/animal/id`

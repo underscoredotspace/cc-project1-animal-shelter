@@ -27,9 +27,13 @@ class Customer
   end
 
   def animals()
-    sql = "SELECT animals.* FROM adoptions
+    sql = "SELECT animals.*, type, breed, adoptable FROM adoptions
     INNER JOIN animals 
       ON animals.id = adoptions.animal_id
+    INNER JOIN animal_breeds
+      ON breed_id = animal_breeds.id
+    INNER JOIN animal_types
+      ON type_id = animal_types.id
     WHERE adoptions.customer_id = $1"
     animals = SqlRunner.run(sql, [@id])
     Animal.map_items(animals)

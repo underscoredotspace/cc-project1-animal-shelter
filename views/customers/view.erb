@@ -9,6 +9,8 @@
   </tr>
 </table>
 
+<hr>
+
 <table>
   <thead>
     <tr>
@@ -31,7 +33,9 @@
   </tbody>
 </table>
 
-<a href="/customers/<%=@customer.id%>/edit">Edit Customer</a><br>
+<hr>
+
+<p><a href="/customers/<%=@customer.id%>/edit">Edit Customer</a></p>
 <% if @customer.approved_to_adopt %>
-  <a href="/customers/<%=@customer.id%>/adopt">Add Adoption</a>
+  <p><a href="/customers/<%=@customer.id%>/adopt">Add Adoption</a></p>
 <% end %>
