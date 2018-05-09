@@ -1,0 +1,5 @@
+<ul>
+  <% @types.each do |type| %>
+  <li><a href="/animals/add/<%= type['id'] %>"><%= type["type"] %></a></li>
+  <% end %>
+</ul>

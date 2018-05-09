@@ -2,6 +2,17 @@ require_relative('../models/Customer')
 require_relative('../models/Animal')
 require_relative('../models/Adoption')
 
+get '/customers/add' do
+  @title = "Add"
+  @section = "Customers"
+  erb(:"customers/add")
+end
+
+post 'customers/add' do
+  customer = Customer.new(params)
+  redirect to("/customers/#{customer.id}")
+end
+
 get '/customers/all' do
   @customers = Customer.all()
   @title = "All"

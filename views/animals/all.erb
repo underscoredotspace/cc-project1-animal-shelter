@@ -10,6 +10,7 @@
   </thead>
   <tbody>
     <% @animals.each do |animal| %>
+    <% p animal %>
     <tr>
       <td><a href="/animals/<%=animal.id%>"><%=animal.name%></a></td>
       <td class="desktop-only"><%=animal.admission_date%></td>

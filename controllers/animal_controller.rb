@@ -1,6 +1,26 @@
 require_relative('../models/Animal')
 require_relative('../models/Customer')
 
+get '/animals/add' do 
+  @types = Animal.types()
+  @title = "Add"
+  @section = "Animals"
+  erb(:"animals/add_type_select")
+end
+
+get '/animals/add/:type_id' do |type|
+  @breeds = Animal.breeds(type)
+  @title = "Add"
+  @section = "Animals"
+  erb(:"animals/add")
+end
+
+post '/animals/add' do
+  animal = Animal.new(params)
+  animal.save()
+  redirect to("/animals/#{animal.id}")
+end
+
 get '/animals/all' do
   @animals = Animal.all()
   @title = "All"

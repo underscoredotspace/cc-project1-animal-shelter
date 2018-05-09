@@ -37,15 +37,14 @@ class Animal
       ON breed_id = animal_breeds.id
     INNER JOIN animal_types
       ON type_id = animal_types.id
-    WHERE animals.id = $1
-    ORDER BY animals.admission_date;"
+    WHERE animals.id = $1;"
 
     animal = SqlRunner.run(sql, [id]).first()
     Animal.new(animal)
   end
   
   def self.all()
-    sql = "SELECT * FROM animals 
+    sql = "SELECT animals.*, type_id, type, breed, adoptable FROM animals 
     FULL JOIN adoptions 
       ON animals.id = animal_id 
     INNER JOIN animal_breeds
@@ -84,6 +83,10 @@ class Animal
 
   def self.delete_all()
     SqlRunner.run('DELETE FROM animals;')
+  end
+
+  def self.types()
+    SqlRunner.run("SELECT * FROM animal_types;")
   end
 
   def self.breeds(type_id)
