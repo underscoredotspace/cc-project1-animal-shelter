@@ -3,20 +3,37 @@
     <tr>
       <td>Customer</td>
       <td>Email</td>
-      <td>Animal</td>
-      <td>Type</td>
-      <td>Breed</td>
-      <td>Adoption Date</td>
+      <td>Adoptions</td>
     </tr>
   </thead>
-  <% @adoptions.each do |adoption| %>
+  <% @adoptions.each do |customer_id, adoption| %>
   <tr>
-    <td><%= adoption.customer_name %></td>
-    <td><%= adoption.customer_email %></td>
-    <td><%= adoption.animal_name %></td>
-    <td><%= adoption.animal_type %></td>
-    <td><%= adoption.animal_breed %></td>
-    <td><%= adoption.adoption_date %></td>
+    <td><a href="/customers/<%= customer_id %>">
+      <%= adoption["customer_name"] %>
+    </a></td>
+    <td><%= adoption["customer_email"] %></td>
+    <td>
+      <table>
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Type</td>
+            <td>Breed</td>
+            <td>Adoption date</td>
+          </tr>
+        </thead>
+        <tbody>
+            <% adoption["animals"].each do |animal_id, animal| %>
+            <tr>
+                <td><a href="/animals/<%= animal_id %>"><%= animal["animal_name"] %></a></td>
+                <td><%= animal["animal_type"] %></td>
+                <td><%= animal["animal_breed"] %></td>
+                <td><%= animal["adoption_date"] %></td>
+            </tr>
+            <% end #animals.each %>
+        </tbody>
+      </table>
+    </td>
   </tr>
   <% end #adoptions.each %>
 </table>

@@ -37,7 +37,24 @@ class Adoption
     INNER JOIN animal_types
       ON type_id = animal_types.id'
     results = SqlRunner.run(sql)
-    self.map_items(results)
+    return results.reduce({}) do |acc, row|
+      if !acc[row["customer_id"]]
+        acc[row["customer_id"]] = {
+          "customer_name" => row["customer_name"],
+          "customer_email" => row["email"],
+          "animals" => {}
+        }
+      end
+
+      acc[row["customer_id"]]["animals"][row["animal_id"]] = {
+        "animal_name" => row["animal_name"],
+        "animal_type" => row["type"],
+        "animal_breed" => row["breed"],
+        "adoption_date" => row["adoption_date"],
+      }
+      
+      acc
+    end
   end
 
   def self.find_by_animal_id(id)
