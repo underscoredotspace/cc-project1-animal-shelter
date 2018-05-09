@@ -8,8 +8,9 @@ get '/customers/add' do
   erb(:"customers/add")
 end
 
-post 'customers/add' do
+post '/customers/add' do
   customer = Customer.new(params)
+  customer.save()
   redirect to("/customers/#{customer.id}")
 end
 
