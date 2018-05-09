@@ -44,6 +44,7 @@ end
 
 get '/animals/:id' do |id|
   @animal = Animal.by_id(id)
+  @owner = @animal.owner()
   @title = @animal.name
   @section = "Animals"
   erb(:"animals/view")

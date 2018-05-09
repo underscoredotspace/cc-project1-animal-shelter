@@ -29,7 +29,7 @@ get '/customers/approved' do
 end
 
 get '/customers/adoptions' do
-  @adoptions = Adoption.adoptions()
+  @adoptions = Adoption.all()
   @title = "Adoptions"
   @section = "Customers"
   erb(:"customers/adoptions")

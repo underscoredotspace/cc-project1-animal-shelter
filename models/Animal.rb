@@ -1,4 +1,5 @@
 require_relative('../db/SqlRunner')
+require_relative('./Customer')
 
 class Animal
   attr_reader :id, :type, :breed, :adoptable, :type_id, :name, :breed_id, :admission_date
@@ -28,6 +29,16 @@ class Animal
       = ($1, $2, $3, $4) WHERE ID = $5;"
     values = [@name, @breed_id, @adoptable, @admission_date, @id]
     SqlRunner.run(sql, values)
+  end
+
+  def owner()
+    sql = "SELECT customers.* FROM adoptions
+    INNER JOIN customers 
+      ON customers.id = adoptions.customer_id
+    WHERE adoptions.animal_id = $1"
+    owner = SqlRunner.run(sql, [@id]).first()
+    return nil if !owner
+    return Customer.new(owner)
   end
 
   # Class methods
