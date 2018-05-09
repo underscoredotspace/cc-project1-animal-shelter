@@ -2,10 +2,13 @@ require('pg')
 
 class SqlRunner
   def self.connect()
-    PG.connect({
-      dbname: 'animal_shelter', 
-      host: 'localhost'
-    })
+    uri = URI.parse(ENV['DATABASE_URL'])
+    postgres = PG.connect(uri.hostname, uri.port, nil, nil, uri.path[1..-1], uri.user, uri.password)
+
+    # PG.connect({
+    #   dbname: 'animal_shelter', 
+    #   host: 'localhost'
+    # })
   end
 
   def self.run(sql, values=[])
