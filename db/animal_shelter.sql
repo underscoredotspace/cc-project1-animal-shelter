@@ -20,7 +20,8 @@ CREATE TABLE animals (
   name varchar(255),
   admission_date date,
   breed_id integer REFERENCES animal_breeds (id) ON DELETE CASCADE,
-  adoptable boolean DEFAULT false
+  adoptable boolean DEFAULT false,
+  image varchar(255)
 );
 
 CREATE TABLE customers (

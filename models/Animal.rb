@@ -2,7 +2,7 @@ require_relative('../db/SqlRunner')
 require_relative('./Customer')
 
 class Animal
-  attr_reader :id, :type, :breed, :adoptable, :type_id, :name, :breed_id, :admission_date
+  attr_reader :id, :type, :breed, :adoptable, :type_id, :name, :breed_id, :admission_date, :image
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
@@ -13,13 +13,14 @@ class Animal
     @breed_id = options["breed_id"].to_i
     @adoptable =  options["adoptable"]=='t' || options["adoptable"]=='on'
     @admission_date = options["admission_date"]
+    @image = options["image"]
   end
 
   def save()
     @adoptable = @adoptable==true ? 't' : 'f'
-    sql = "INSERT INTO animals (name, breed_id, adoptable, admission_date)
-      VALUES ($1, $2, $3, $4) RETURNING id;"
-    values = [@name, @breed_id, @adoptable, @admission_date]
+    sql = "INSERT INTO animals (name, breed_id, adoptable, admission_date, image)
+      VALUES ($1, $2, $3, $4, $5) RETURNING id;"
+    values = [@name, @breed_id, @adoptable, @admission_date, @image]
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 

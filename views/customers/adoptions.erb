@@ -3,7 +3,6 @@
     <tr>
       <td>Customer</td>
       <td>Email</td>
-      <td>Adoptions</td>
     </tr>
   </thead>
   <% @adoptions.each do |customer_id, adoption| %>
@@ -12,7 +11,9 @@
       <%= adoption["customer_name"] %>
     </a></td>
     <td><%= adoption["customer_email"] %></td>
-    <td>
+  </tr>
+  <tr>
+    <td colspan="2" class="adoptions">
       <table>
         <thead>
           <tr>
@@ -24,7 +25,7 @@
         </thead>
         <tbody>
             <% adoption["animals"].each do |animal_id, animal| %>
-            <tr>
+            <tr class="subtable">
                 <td><a href="/animals/<%= animal_id %>"><%= animal["animal_name"] %></a></td>
                 <td><%= animal["animal_type"] %></td>
                 <td><%= animal["animal_breed"] %></td>
